@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+	You are signed in as <%= current_user.email %><br>
+	<%= link_to "Click here to edit password", edit_user_registration_path %><br>
+	<%= link_to "Click here to sign out", destroy_user_session_path, :method => :delete %>.
+<% else %>
+	Click <%= link_to "here", "/users/sign_in" %> to sign in.
+<% end %>
