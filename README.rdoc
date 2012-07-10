@@ -1,0 +1,4 @@
+== MR HING (V2)
+
+A website for a friend of mine who's a teacher.
+Previous version used own authentication, this version uses devise.
