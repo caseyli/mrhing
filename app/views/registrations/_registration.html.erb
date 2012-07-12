@@ -1,8 +1,0 @@
-<li>
-	<%= "#{registration.user.full_name} #{registration.course.name}" %>
-	<% if registration.approved %>
-	Approved
-	<% else %>
-	<%= link_to "Approve", :controller => :registrations, :id => registration.id, :action => :approve %>
-	<% end %>
-</li>
