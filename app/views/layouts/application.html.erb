@@ -10,12 +10,24 @@
 	<div class="header">
 		<%= render "layouts/header" %>
 	</div>
-  	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
-	<% flash.each do |key, value| %>
-		<div class="flash <%= key %>"><%= value %></div>
-	<% end %>
-	<%= yield %>
+	
+	<div class="main-body">
+		<table class="main-body-table-layout">
+			<tr>
+				<td class="side-menu">
+					<%= render 'layouts/side_menu' %>
+				</td>
+				<td>
+					<!-- <p class="notice"><%= notice %></p>
+					<p class="alert"><%= alert %></p> -->
+					<% flash.each do |key, value| %>
+						<div class="flash <%= key %>"><%= value %></div>
+					<% end %>
+					<%= yield %>
+				</td>
+			</tr>
+		</table>
+	</div>
 
 </body>
 </html>

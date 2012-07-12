@@ -1,11 +1,13 @@
 <div class='main-menu'>
 	<% if admin? %>
-		<%= link_to "Users", "#" %>
+		<%= link_to "Users", users_path %>
+		<%= link_to "Courses", courses_path %>
+		<%= link_to "Registrations", registrations_path %>
 	<% end %>
 </div>
 <div class='account-menu'>
 	<% if user_signed_in? %>
-		You are signed in as <%= current_user.email %><br>
+		You are signed in as <%= current_user.full_name %><br>
 		<%= link_to "Click here to edit password", edit_user_registration_path %><br>
 		<%= link_to "Click here to sign out", destroy_user_session_path, :method => :delete %>.
 	<% else %>

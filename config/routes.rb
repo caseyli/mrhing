@@ -9,6 +9,18 @@ Mrhing::Application.routes.draw do
   resources :users
   match "/users/:id/make_admin" => "users#make_admin"
   match "/users/:id/take_away_admin" => "users#take_away_admin"
+
+  resources :courses do
+    member do
+      get :register_current_user
+    end
+  end
+  
+  resources :registrations do 
+    member do
+      get :approve
+    end
+  end
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @course.name %>
+</p>
+<% if admin? %>
+	<h2>Registered Students</h2>
+	<ul>
+		<% @course.users.each do |user| %>
+			<li><%=  user.full_name %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>

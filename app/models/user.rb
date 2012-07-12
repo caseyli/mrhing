@@ -11,6 +11,12 @@ class User < ActiveRecord::Base
 
 
   has_and_belongs_to_many :roles
+  has_many :registrations
+  has_many :courses, :through => :registrations
+  
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
   
   def is_admin?
     roles?(:admin)
@@ -28,4 +34,12 @@ class User < ActiveRecord::Base
     self.roles << Role.find_by_name(role)
   end
   
+  def is_registered_for(course)
+    self.courses.include?(course)
+  end
+  
+  def approved_courses
+    a = self.registrations.select{|registration| registration.approved}
+    a.collect{|registration| registration.course}
+  end 
 end

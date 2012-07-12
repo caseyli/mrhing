@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+	<% if current_user.approved_courses.empty? %>
+		You have no approved registrations yet.
+	<% end %>
+	<ul>
+		<% current_user.approved_courses.each do |course| %>
+			<li><%= link_to course.name, "#" %></li>
+		<% end %>
+	</ul>
+<% end %>

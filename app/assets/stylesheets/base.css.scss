@@ -1,6 +1,7 @@
 /* General */
 body {
 	margin: 0px;
+	font-family: Arial;
 }
 
 /* Header */
@@ -20,6 +21,24 @@ body {
 
 .main-menu {
 	float:left;
+}
+
+/* Main Body */
+.main-body {
+}
+
+.main-body-table-layout {
+	height:1000px;
+	border-collapse:collapse;
+	td {
+		vertical-align:top;
+		padding: 10px;
+		
+		&.side-menu {
+			background:#eee;
+			width:160px;
+		}
+	}
 }
 
 /* Flashes */
