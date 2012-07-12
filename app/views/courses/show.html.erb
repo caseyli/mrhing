@@ -1,11 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
+<h1>
   <%= @course.name %>
-</p>
+</h1>
+
+
 <% if admin? %>
-	<h2>Registered Students</h2>
+	<hr>
+	<h2>Administration</h2>
+	<h3>Registered Students</h3>
 	<ul>
 		<% @course.users.each do |user| %>
 			<li><%=  user.full_name %></li>

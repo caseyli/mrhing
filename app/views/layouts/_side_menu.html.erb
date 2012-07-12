@@ -1,10 +1,11 @@
 <% if user_signed_in? %>
+	<h1>Registered Courses</h1>
 	<% if current_user.approved_courses.empty? %>
 		You have no approved registrations yet.
 	<% end %>
 	<ul>
 		<% current_user.approved_courses.each do |course| %>
-			<li><%= link_to course.name, "#" %></li>
+			<li><%= link_to course.name, course %></li>
 		<% end %>
 	</ul>
 <% end %>
