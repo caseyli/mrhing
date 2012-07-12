@@ -4,6 +4,6 @@ class Course < ActiveRecord::Base
   validates :name,  presence: true,
                     uniqueness: { case_sensitive: false }
                     
-  has_many :registrations
-  has_many :users, :through => :registrations
+  has_many :course_registrations
+  has_many :users, :through => :course_registrations
 end

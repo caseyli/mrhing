@@ -47,7 +47,7 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
     @course.users << current_user
     if @course.save
-      flash[:success] = "You have successfully registered."
+      flash[:success] = "You have successfully registered. However, you will have to wait until your registration is approved."
     else
       flash[:error] = "There has been an error in registering you for the course."
     end

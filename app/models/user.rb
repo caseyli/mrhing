@@ -11,8 +11,8 @@ class User < ActiveRecord::Base
 
 
   has_and_belongs_to_many :roles
-  has_many :registrations
-  has_many :courses, :through => :registrations
+  has_many :course_registrations
+  has_many :courses, :through => :course_registrations
   
   def full_name
     "#{self.first_name} #{self.last_name}"
@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
   end
   
   def approved_courses
-    a = self.registrations.select{|registration| registration.approved}
-    a.collect{|registration| registration.course}
+    a = self.course_registrations.select{|course_registration| course_registration.approved}
+    a.collect{|course_registration| course_registration.course}
   end 
 end

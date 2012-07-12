@@ -16,7 +16,7 @@ Mrhing::Application.routes.draw do
     end
   end
   
-  resources :registrations do 
+  resources :course_registrations do 
     member do
       get :approve
     end
