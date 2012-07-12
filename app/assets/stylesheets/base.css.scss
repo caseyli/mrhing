@@ -1,0 +1,44 @@
+/* General */
+body {
+	margin: 0px;
+}
+
+/* Header */
+.header {
+	color:white;
+	background:black;
+	padding: 10px;
+	height: 55px;
+	a {
+		color:white;
+	}
+}
+
+.account-menu {
+	float:right;
+}
+
+.main-menu {
+	float:left;
+}
+
+/* Flashes */
+.flash {
+	border: 2px solid;
+	padding: 10px;
+	border-radius:10px;
+	text-align: center;
+	background:#eee;
+}
+
+.error {
+	border-color: red;
+}
+
+.success {
+	border-color: green;
+}
+
+.notice {
+	border-color: black;
+}

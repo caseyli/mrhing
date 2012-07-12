@@ -5,6 +5,11 @@ Mrhing::Application.routes.draw do
   get "pages/home"
 
   root :to => "pages#home"
+  
+  resources :users
+  match "/users/:id/make_admin" => "users#make_admin"
+  match "/users/:id/take_away_admin" => "users#take_away_admin"
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
