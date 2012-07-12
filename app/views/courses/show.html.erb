@@ -14,7 +14,8 @@
 			<li><%=  user.full_name %></li>
 		<% end %>
 	</ul>
+	
+	<%= link_to 'Edit', edit_course_path(@course) %> |
+	<%= link_to 'Back', courses_path %>
 <% end %>
 
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>

@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
   
   before_filter :authenticate
+  before_filter :deny_access_for_non_admins,  only: [:new, :edit, :create, :update, :destroy]
 
   def index
     @courses = Course.all
