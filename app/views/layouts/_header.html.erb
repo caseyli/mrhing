@@ -11,15 +11,21 @@
 </div>
 <div class='account-menu'>
 	<% if user_signed_in? %>
-		<ul class="dropdown-menu">
-			<li>
-				You are signed in as <%= link_to current_user.full_name, "#" %>
-				<ul>
-					<%= link_to "Edit Password", edit_user_registration_path %>
-					<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
-				</ul>
-			</li>
-		<ul>
+				<%= link_to (image_tag Gravatar.new(current_user.email).image_url, :class => "header-avatar"), "http://www.gravatar.com", :target => "_blank" %>
+		<div class="user-menu">
+			<ul class="dropdown-menu">
+				<li>
+					You are signed in as <%= link_to current_user.full_name, "#" %>
+					<ul>
+						<%= link_to "Edit Password", edit_user_registration_path %>
+						<%= link_to "Profile Image", "http://www.gravatar.com", :target => "_blank" %>
+						<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+					</ul>
+
+				</li>
+			<ul>
+		</div>
+
 	<% else %>
 		Click <%= link_to "here", "/users/sign_in" %> to sign in.
 	<% end %>

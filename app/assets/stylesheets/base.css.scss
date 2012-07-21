@@ -9,12 +9,17 @@ body {
 	color:white;
 	background:black;
 	padding: 10px;
-	height: 55px;
+	height: 80px;
 	a {
 		color:white;
 	}
 }
 
+.header-avatar {
+	height: 70px;
+	float:right;
+	margin: 5px;
+}
 .account-menu {
 	float:right;
 }
@@ -23,10 +28,15 @@ body {
 	float:left;
 }
 
+.user-menu {
+	float:right;
+}
+
 .dropdown-menu{
 	list-style:none;
 	font-weight:normal;
 	margin-bottom:0px;
+	padding-left:0px;
 	/* Clear floats */
 	float:left;
 	width:100%;
