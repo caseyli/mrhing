@@ -23,6 +23,74 @@ body {
 	float:left;
 }
 
+.dropdown-menu{
+	list-style:none;
+	font-weight:normal;
+	margin-bottom:0px;
+	/* Clear floats */
+	float:left;
+	width:100%;
+	/* Bring the nav above everything else--uncomment if needed.
+	position:relative;
+	z-index:5;
+	*/
+}
+.dropdown-menu li{
+	float:left;
+	margin-right:10px;
+	position:relative;
+}
+.dropdown-menu a{
+	display:block;
+	padding:5px;
+	color:#000;
+	background:#999;
+	text-decoration:none;
+	&:visited {
+		color:black
+	};
+	&:hover {
+		color:#00A;
+		background:#6b0c36;
+	};
+}
+
+/*--- DROPDOWN ---*/
+.dropdown-menu ul{
+	background:#000; /* Adding a background makes the dropdown work properly in IE7+. Make this as close to your page's background as possible (i.e. white page == white background). */
+	background:#000;
+	list-style:none;
+	position:absolute;
+	padding-left:0px;
+	margin-left:-10px;
+	width:150px;
+	border:1px solid;
+	border-color:#44B;
+	left:-9999px; /* Hide off-screen when not needed (this is more accessible than display:none;) */
+	
+	li {
+		padding-top:1px; /* Introducing a padding between the li and the a give the illusion spaced items */
+		float:none;
+		
+		a {
+			white-space:nowrap; /* Stop text wrapping and creating multi-line dropdown items */
+		}
+	}
+}
+.dropdown-menu li:hover ul{ /* Display the dropdown on hover */
+	left:0; /* Bring back on-screen when needed */
+}
+.dropdown-menu li:hover a{ /* These create persistent hover states, meaning the top-most link stays 'hovered' even when your cursor has moved down the list. */
+	background:#fff;
+}
+.dropdown-menu li:hover ul a{ /* The persistent hover state does however create a global style for links even before they're hovered. Here we undo these effects. */
+	text-decoration:none;
+}
+.dropdown-menu li:hover ul li a:hover{ /* Here we define the most explicit hover states--what happens when you hover each individual link. */
+	background:#fff;
+	color:black;
+}
+
 /* Main Body */
 .main-body {
 }

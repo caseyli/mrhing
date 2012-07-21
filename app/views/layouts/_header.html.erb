@@ -11,9 +11,15 @@
 </div>
 <div class='account-menu'>
 	<% if user_signed_in? %>
-		You are signed in as <%= current_user.full_name %><br>
-		<%= link_to "Click here to edit password", edit_user_registration_path %><br>
-		<%= link_to "Click here to sign out", destroy_user_session_path, :method => :delete %>.
+		<ul class="dropdown-menu">
+			<li>
+				You are signed in as <%= link_to current_user.full_name, "#" %>
+				<ul>
+					<%= link_to "Edit Password", edit_user_registration_path %>
+					<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+				</ul>
+			</li>
+		<ul>
 	<% else %>
 		Click <%= link_to "here", "/users/sign_in" %> to sign in.
 	<% end %>
