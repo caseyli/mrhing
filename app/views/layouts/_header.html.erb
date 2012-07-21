@@ -1,5 +1,6 @@
 <div class='main-menu'>
 	<% if user_signed_in? %>
+		<%= image_tag "headerlogo.png" %><br>
 		<%= link_to "Home", "/" %>
 		<%= link_to "Courses", courses_path %>
 		<% if admin? %>
