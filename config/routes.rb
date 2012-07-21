@@ -1,5 +1,7 @@
 Mrhing::Application.routes.draw do
   
+
+
   devise_for :users
 
   get "pages/home"
@@ -21,6 +23,8 @@ Mrhing::Application.routes.draw do
       get :approve
     end
   end
+  
+  resources :news_posts
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

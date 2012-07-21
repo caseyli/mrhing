@@ -3,7 +3,38 @@
 <h1>
   <%= @course.name %>
 </h1>
+<div class="news-board">
+	<h2>News and Announcements</h2>
+	<% if admin? %>
+		<%= link_to "Add News Post", new_news_post_path %>
+	<% end %>
+	<ul class="news-posts">
+		<% @course.news_posts.each do |news_post| %>
+			<li>
+				<div class="news-post-header">
+					<h3><%= news_post.title %></h3>
+					<div class="news-post-header-date">
+						<%= convert_time_string(news_post.updated_at) %>
+					</div>
+					<% if admin? %>
+						<div class="news-post-actions">
+							<%= link_to "edit", edit_news_post_path(news_post) %>
+							<%= link_to 'delete', news_post, 
+									:method => :delete, 
+									:confirm => "Are you sure you want to delete #{news_post.title}?", 
+									:title => "Delete News Post?" %>
+						</div>
+					<% end %>
+				</div>
+				<div class="news-post-body">
+					<%= raw news_post.body %>
+				</div>
 
+			
+			</li>
+		<% end %>
+	</ul>
+</div>
 
 <% if admin? %>
 	<hr>
