@@ -13,7 +13,7 @@
 
   <div class="field">
   	<%= f.label :course_id %><br />
-	<%= f.select :course_id, Course.all.collect{|c| [c.name, c.id]} %>
+	<%= f.select :course_id, Course.all.collect{|c| [c.name, c.id]}, :selected => @course.id %>
   </div>
   <div class="field">
     <%= f.label :title %><br />
@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :body %><br />
-    <%= f.text_field :body %>
+    <%= f.text_area :body %>
   </div>
   <div class="actions">
     <%= f.submit %>

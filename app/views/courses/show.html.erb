@@ -1,12 +1,10 @@
-<p id="notice"><%= notice %></p>
-
 <h1>
   <%= @course.name %>
 </h1>
 <div class="news-board">
 	<h2>News and Announcements</h2>
 	<% if admin? %>
-		<%= link_to "Add News Post", new_news_post_path %>
+		<%= link_to "Add News Post", "/news_posts/new?course_id=#{@course.id}", :class => "button" %>
 	<% end %>
 	<ul class="news-posts">
 		<% @course.news_posts.each do |news_post| %>

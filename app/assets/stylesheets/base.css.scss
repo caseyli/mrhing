@@ -64,5 +64,30 @@ body {
 }
 
 .notice {
-	border-color: black;
+	border-color: green;
+}
+
+/* Links */
+.button {
+	padding: 8px;
+	background:#47698B;
+	color:white;
+	border-radius: 5px;
+	text-decoration:none;
+	&:visited {
+		color:white
+	};
+	&:hover {
+		background:#718199;
+		color:white;
+	}
+}
+
+/* Forms */
+input, textarea {
+	width: 400px;
+	border-radius: 5px;
+	border-color:#333;
+	border: 1px solid;
+	padding: 5px;
 }

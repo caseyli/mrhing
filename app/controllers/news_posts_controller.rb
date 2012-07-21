@@ -25,6 +25,9 @@ class NewsPostsController < ApplicationController
   # GET /news_posts/new.json
   def new
     @news_post = NewsPost.new
+    
+    @course = Course.first
+    @course = Course.find(params[:course_id]) unless params[:course_id].blank?
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +38,7 @@ class NewsPostsController < ApplicationController
   # GET /news_posts/1/edit
   def edit
     @news_post = NewsPost.find(params[:id])
+    @course = @news_post.course
   end
 
   # POST /news_posts
@@ -44,7 +48,7 @@ class NewsPostsController < ApplicationController
 
     respond_to do |format|
       if @news_post.save
-        format.html { redirect_to @news_post, notice: 'News post was successfully created.' }
+        format.html { redirect_to @news_post.course, notice: 'News post was successfully created.' }
         format.json { render json: @news_post, status: :created, location: @news_post }
       else
         format.html { render action: "new" }
@@ -60,7 +64,7 @@ class NewsPostsController < ApplicationController
 
     respond_to do |format|
       if @news_post.update_attributes(params[:news_post])
-        format.html { redirect_to @news_post, notice: 'News post was successfully updated.' }
+        format.html { redirect_to @news_post.course, notice: 'News post was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -73,10 +77,11 @@ class NewsPostsController < ApplicationController
   # DELETE /news_posts/1.json
   def destroy
     @news_post = NewsPost.find(params[:id])
+    @course = @news_post.course
     @news_post.destroy
 
     respond_to do |format|
-      format.html { redirect_to news_posts_url }
+      format.html { redirect_to @course }
       format.json { head :no_content }
     end
   end
