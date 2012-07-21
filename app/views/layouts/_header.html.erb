@@ -1,9 +1,11 @@
 <div class='main-menu'>
-	<%= link_to "Home", "/" %>
-	<%= link_to "Courses", courses_path %>
-	<% if admin? %>
-		<%= link_to "Users", users_path %>
-		<%= link_to "Registrations", course_registrations_path %>
+	<% if user_signed_in? %>
+		<%= link_to "Home", "/" %>
+		<%= link_to "Courses", courses_path %>
+		<% if admin? %>
+			<%= link_to "Users", users_path %>
+			<%= link_to "Registrations", course_registrations_path %>
+		<% end %>
 	<% end %>
 </div>
 <div class='account-menu'>

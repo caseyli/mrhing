@@ -1,0 +1,22 @@
+.sign-in {
+	position:relative;
+	top: -300px;
+	left: 400px;
+	input[type="checkbox"] {
+		width: 15px;
+	}
+	
+	input[type="submit"] {
+		width: 100px;
+	}
+	
+	input[type="email"], input[type="password"] {
+		width: 200px;
+	}
+}
+
+.signin-splash {
+	position: relative;
+	left: 0px;
+	top: 0px;
+}
