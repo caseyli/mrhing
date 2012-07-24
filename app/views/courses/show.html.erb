@@ -4,7 +4,7 @@
 <div class="news-board">
 	<h2>News and Announcements</h2>
 	<% if admin? %>
-		<%= link_to "Add News Post", "/news_posts/new?course_id=#{@course.id}", :class => "button" %>
+		<%= link_to "Add News Post", new_course_news_post_path(@course), :class => "button" %>
 	<% end %>
 	<ul class="news-posts">
 		<% @course.news_posts.each do |news_post| %>
@@ -16,8 +16,8 @@
 					</div>
 					<% if admin? %>
 						<div class="news-post-actions">
-							<%= link_to "edit", edit_news_post_path(news_post) %>
-							<%= link_to 'delete', news_post, 
+							<%= link_to "edit", edit_course_news_post_path(@course, news_post) %>
+							<%= link_to 'delete', [@course, news_post], 
 									:method => :delete, 
 									:confirm => "Are you sure you want to delete #{news_post.title}?", 
 									:title => "Delete News Post?" %>

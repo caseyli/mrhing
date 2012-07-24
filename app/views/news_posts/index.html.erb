@@ -1,27 +1,36 @@
-<h1>Listing news_posts</h1>
 
-<table>
-  <tr>
-	<th>Course</th>
-    <th>Title</th>
-    <th>Body</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="news-board">
+	<h2>All News for <%= @course.name %></h2>
+	<% if admin? %>
+		<%= link_to "Add News Post", new_course_news_post_path(@course), :class => "button" %>
+	<% end %>
+	<ul class="news-posts">
+		<% @news_posts.each do |news_post| %>
+			<li>
+				<div class="news-post-header">
+					<h3><%= news_post.title %></h3>
+					<div class="news-post-header-date">
+						<%= convert_time_string(news_post.updated_at) %>
+					</div>
+					<% if admin? %>
+						<div class="news-post-actions">
+							<%= link_to "edit", edit_course_news_post_path(@course, news_post) %>
+							<%= link_to 'delete', [@course, news_post], 
+									:method => :delete, 
+									:confirm => "Are you sure you want to delete #{news_post.title}?", 
+									:title => "Delete News Post?" %>
+						</div>
+					<% end %>
+				</div>
+				<div class="news-post-body">
+					<%= raw news_post.body %>
+				</div>
 
-<% @news_posts.each do |news_post| %>
-  <tr>
-	<td><%= news_post.course.name %></td>
-    <td><%= news_post.title %></td>
-    <td><%= news_post.body %></td>
-    <td><%= link_to 'Show', news_post %></td>
-    <td><%= link_to 'Edit', edit_news_post_path(news_post) %></td>
-    <td><%= link_to 'Destroy', news_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
+		
+			</li>
+		<% end %>
+	</ul>
+</div>
 <br />
 
-<%= link_to 'New News post', new_news_post_path %>
+<%= link_to 'New News post', new_course_news_post_path(@course) %>

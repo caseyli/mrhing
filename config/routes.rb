@@ -13,6 +13,7 @@ Mrhing::Application.routes.draw do
   match "/users/:id/take_away_admin" => "users#take_away_admin"
 
   resources :courses do
+    resources :news_posts
     member do
       get :register_current_user
     end
@@ -24,7 +25,7 @@ Mrhing::Application.routes.draw do
     end
   end
   
-  resources :news_posts
+  
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
