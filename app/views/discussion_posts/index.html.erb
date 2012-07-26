@@ -1,0 +1,25 @@
+<h1>Listing discussion_posts</h1>
+
+<table>
+  <tr>
+    <th>Posted by</th>
+    <th>Body</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @discussion_posts.each do |discussion_post| %>
+  <tr>
+    <td><%= discussion_post.posted_by %></td>
+    <td><%= discussion_post.body %></td>
+    <td><%= link_to 'Show', discussion_post %></td>
+    <td><%= link_to 'Edit', edit_discussion_post_path(discussion_post) %></td>
+    <td><%= link_to 'Destroy', discussion_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Discussion post', new_discussion_post_path %>

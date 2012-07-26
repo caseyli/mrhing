@@ -1,5 +1,7 @@
 Mrhing::Application.routes.draw do
 
+  resources :discussion_posts
+
   devise_for :users
 
   get "pages/home"
@@ -12,7 +14,9 @@ Mrhing::Application.routes.draw do
 
   resources :courses do
     resources :news_posts
-    resources :topics
+    resources :topics do
+      resources :discussion_posts
+    end
     
     member do
       get :register_current_user

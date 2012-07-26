@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Posted by:</b>
+  <%= @discussion_post.posted_by %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @discussion_post.body %>
+</p>
+
+
+<%= link_to 'Edit', edit_topic_discussion_post_path(@topic, @discussion_post) %> |
+<%= link_to 'Back', topic_discussion_posts_path(@topic) %>

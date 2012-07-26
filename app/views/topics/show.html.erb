@@ -1,10 +1,24 @@
 <p id="notice"><%= notice %></p>
+<div class="discussion-topic">
+	<h1><%= @topic.title %></h1>
+	<%= link_to "New Post", new_course_topic_discussion_post_path(@course, @topic), :class => "button" %>
+	<ul class="dicussion-posts">
+	<% @topic.discussion_posts.each do |discussion_post| %>
+		<li>
+			<%= discussion_post.body %>
+			Posted by <%= discussion_post.posted_by %> at <%= discussion_post.updated_at %>
+			<% if admin? %>
+				<%= link_to 'delete', [@course, @topic, discussion_post], 
+						:method => :delete, 
+						:confirm => "Are you sure you want to delete the post?", 
+						:title => "Delete Discussion Post?" %>
+			<% end %>
+		</li>
+	<% end %>
+	</ul>
+</div>
 
-<p>
-  <b>Title:</b>
-  <%= @topic.title %>
-</p>
-
-
-<%= link_to 'Edit', edit_course_topic_path(@course, @topic) %> |
+<% if admin? %>
+	<%= link_to 'Edit', edit_course_topic_path(@course, @topic) %> |
+<% end %>
 <%= link_to 'Back', course_topics_path(@course) %>

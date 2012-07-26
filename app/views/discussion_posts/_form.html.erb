@@ -1,0 +1,21 @@
+<%= form_for [@course, @topic, @discussion_post] do |f| %>
+  <% if @discussion_post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@discussion_post.errors.count, "error") %> prohibited this discussion_post from being saved:</h2>
+
+      <ul>
+      <% @discussion_post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
