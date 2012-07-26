@@ -1,6 +1,4 @@
 Mrhing::Application.routes.draw do
-  
-
 
   devise_for :users
 
@@ -14,6 +12,8 @@ Mrhing::Application.routes.draw do
 
   resources :courses do
     resources :news_posts
+    resources :topics
+    
     member do
       get :register_current_user
     end

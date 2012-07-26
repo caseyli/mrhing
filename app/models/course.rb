@@ -7,4 +7,5 @@ class Course < ActiveRecord::Base
   has_many :course_registrations
   has_many :users, :through => :course_registrations
   has_many :news_posts
+  has_many :topics
 end

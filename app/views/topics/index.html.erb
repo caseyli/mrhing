@@ -1,0 +1,27 @@
+
+<div class="discussion-board">
+	<h2>All Discussion Topics for <%= @course.name %></h2>
+	<%= link_to "Add Discussion Topic", new_course_topic_path(@course), :class => "button" %>
+	<ul class="topics">
+		<% @topics.each do |topic| %>
+			<li>
+				<div class="topic-header">
+					<h3><%= link_to topic.title, course_topic_path(@course, topic) %></h3>
+					<div class="topic-header-date">
+						<%= convert_time_string(topic.updated_at) %>
+					</div>
+					<% if admin? %>
+						<div class="topic-actions">
+							<%= link_to "edit", edit_course_topic_path(@course, topic) %>
+							<%= link_to 'delete', [@course, topic], 
+									:method => :delete, 
+									:confirm => "Are you sure you want to delete #{topic.title}?", 
+									:title => "Delete Topic?" %>
+						</div>
+					<% end %>
+				</div>		
+			</li>
+		<% end %>
+	</ul>
+</div>
+<br />
