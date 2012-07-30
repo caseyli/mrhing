@@ -38,6 +38,11 @@ class DiscussionPostsController < ApplicationController
     @discussion_post.posted_by = current_user.full_name
     respond_to do |format|
       if @discussion_post.save
+        
+        # update topic with latest post
+        @discussion_post.topic.updated_at = @discussion_post.updated_at
+        @discussion_post.topic.save
+        
         format.html { redirect_to course_topic_path(@course, @discussion_post.topic), notice: 'Discussion post was successfully created.' }
         format.json { render json: @discussion_post, status: :created, location: @discussion_post }
       else

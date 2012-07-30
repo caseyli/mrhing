@@ -7,7 +7,7 @@
 				<div class="topic-header">
 					<h3><%= link_to topic.title, course_topic_path(@course, topic) %></h3>
 					<div class="topic-header-date">
-						<%= convert_time_string(topic.updated_at) %>
+						Last Post: <%= convert_time_string(topic.updated_at) %>
 					</div>
 					<% if admin? %>
 						<div class="topic-actions">

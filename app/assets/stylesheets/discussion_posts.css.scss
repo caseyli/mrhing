@@ -1,3 +1,21 @@
 // Place all the styles related to the DiscussionPosts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+ul.discussion-posts {
+	padding-left: 0px;
+	list-style:none;
+	
+	li {
+		padding: 5px;
+		border-top:1px solid;
+		border-left:1px solid;
+		border-color: #888;
+		margin-bottom: 10px;
+		
+		.discussion-post-header {
+			font-style:italic;
+		}
+	}
+	
+}
