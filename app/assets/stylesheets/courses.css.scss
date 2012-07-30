@@ -1,0 +1,18 @@
+.course-menu-header {
+	color:#CCC;
+}
+.course-menu {
+	width: 100%;
+	padding: 10px;
+	background:#134;
+	color:white;
+	a {
+		color:white;
+		text-decoration:none;
+		&:hover{
+			background:none;
+			text-decoration:underline;
+		};
+		&:visited{color:white;}
+	}
+}

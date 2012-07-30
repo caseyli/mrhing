@@ -1,13 +1,13 @@
 <h1>
-  <%= @course.name %>
+  <%= @course.name %> Home
 </h1>
 <div class="news-board">
-	<h2>News and Announcements</h2>
+	<h2>Recent News and Announcements</h2>
 	<% if admin? %>
 		<%= link_to "Add News Post", new_course_news_post_path(@course), :class => "button" %>
 	<% end %>
 	<ul class="news-posts">
-		<% @course.news_posts.each do |news_post| %>
+		<% @course.news_posts.limit(5).each do |news_post| %>
 			<li>
 				<div class="news-post-header">
 					<h3><%= news_post.title %></h3>
@@ -27,11 +27,10 @@
 				<div class="news-post-body">
 					<%= raw news_post.body %>
 				</div>
-
-			
 			</li>
 		<% end %>
 	</ul>
+	<%= link_to "View All News Posts", course_news_posts_path(@course) %>
 </div>
 
 <% if admin? %>

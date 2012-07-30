@@ -4,6 +4,11 @@ body {
 	font-family: Arial;
 }
 
+h1 {
+	font-size: 30px;
+	padding-bottom: 20px;
+}
+
 /* Header */
 .header {
 	color:white;
@@ -107,19 +112,23 @@ body {
 
 .main-body-table-layout {
 	height:1000px;
-	width:95%;
+	width:100%;
 	border-collapse:collapse;
 	td {
 		vertical-align:top;
-		padding: 10px;
+		padding: 0px;
 		
 		&.side-menu {
 			background:#eee;
 			width:160px;
-
+			padding: 10px;
 			h1 {
 				font-size: 15px;
 			}
+		}
+		
+		.course-body {
+			padding: 10px;
 		}
 	}
 }

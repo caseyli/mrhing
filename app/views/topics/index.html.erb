@@ -1,6 +1,5 @@
-
+<h1><%= @course.name %> Discussion Board</h1>
 <div class="discussion-board">
-	<h2>All Discussion Topics for <%= @course.name %></h2>
 	<%= link_to "Add Discussion Topic", new_course_topic_path(@course), :class => "button" %>
 	<ul class="topics">
 		<% @topics.each do |topic| %>
