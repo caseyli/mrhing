@@ -4,9 +4,9 @@
 
 .news-board {
 	background:#eee;
-	padding: 20px;
+	padding: 0px 10px 10px 10px;
 	border: 1px solid;
-	border-color:black;
+	border-color:#DDD;
 	border-radius: 10px;
 	width: 90%;
 	h2 {
@@ -23,8 +23,8 @@
 	}
 	
 	.news-post-header {
-		background:#444;
-		color:white;
+		background:#BBB;
+		color:black;
 		padding: 10px;
 		border-top-left-radius: 10px;
 		border-top-right-radius: 10px;
@@ -41,8 +41,8 @@
 			top:-25px;
 
 			a {
-				color:#CCC;
-				background:#444;
+				color:#333;
+				background:#BBB;
 				text-decoration:none;
 				&:hover {
 					color:#FFF;

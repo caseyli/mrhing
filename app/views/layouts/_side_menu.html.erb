@@ -3,7 +3,7 @@
 	<% if current_user.approved_courses.empty? %>
 		You have no approved registrations yet.
 	<% end %>
-	<ul>
+	<ul class="registered-courses-menu">
 		<% current_user.approved_courses.each do |course| %>
 			<li><%= link_to course.name, course %></li>
 		<% end %>
