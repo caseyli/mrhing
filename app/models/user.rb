@@ -11,8 +11,8 @@ class User < ActiveRecord::Base
 
 
   has_and_belongs_to_many :roles
-  has_many :course_registrations
-  has_many :courses, :through => :course_registrations
+  has_many :course_registrations, dependent: :destroy
+  has_many :courses, through: :course_registrations
   
   def full_name
     "#{self.first_name} #{self.last_name}"
