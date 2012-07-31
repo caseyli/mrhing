@@ -1,8 +1,10 @@
-<li>
-	<%= user.email %>
-	<% if user.is_admin? %>
+<tr>
+	<td><%= user.full_name %></td>
+	<td><%= user.email %></td>
+	<td><% if user.is_admin? %>
 		<%= link_to "Take Away Admin", "/users/#{user.id}/take_away_admin" %>
 	<% else %>
 		<%= link_to "Make Admin", "/users/#{user.id}/make_admin" %>
 	<% end %>
-</li>
+	</td>
+</tr>

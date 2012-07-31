@@ -193,3 +193,15 @@ input, textarea {
 	border: 1px solid;
 	padding: 5px;
 }
+
+/* Tables */
+table.standard-listing {
+	border-collapse: collapse;
+	tr {
+		td {
+			border: 1px solid;
+			border-color: #eee;
+			padding:30px;
+		}
+	}
+}
