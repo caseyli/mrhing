@@ -2,6 +2,9 @@ class NewsPostsController < ApplicationController
   # GET /news_posts
   # GET /news_posts.json
   before_filter :load_course
+  before_filter :authenticate
+  before_filter :deny_access_for_non_approved_students
+  before_filter :deny_access_for_non_admins, only: [:new, :edit, :create, :destroy, :update]
   
   def index
     @news_posts = @course.news_posts

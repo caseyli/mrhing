@@ -9,6 +9,14 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def deny_access_for_non_approved_students
+    @course = Course.find(params[:course_id])
+    if !admin? && !current_user.approved_courses.include?(@course)
+      flash[:error] = "You are not an approved, registered student of the course you're trying to view."
+      redirect_to root_path 
+    end
+  end
+  
   def authenticate
     redirect_to "/users/sign_in" if !user_signed_in?
   end

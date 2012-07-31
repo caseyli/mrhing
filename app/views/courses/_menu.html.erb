@@ -1,8 +1,10 @@
 <% unless @course.nil? %>
-	<span class="course-menu-header">
-		<%= @course.name %> Menu:
-	</span>
-	<%= link_to "Home", @course %> | 
-	<%= link_to "News", course_news_posts_path(@course) %> |
-	<%= link_to "Discussion Board", course_topics_path(@course) %>
+	<div class="course-menu">
+		<span class="course-menu-header">
+			<%= @course.name %> Menu:
+		</span>
+		<%= link_to "Home", @course %> | 
+		<%= link_to "News", course_news_posts_path(@course) %> |
+		<%= link_to "Discussion Board", course_topics_path(@course) %>
+	</div>
 <% end %>

@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
   
   before_filter :authenticate
+  before_filter :deny_access_for_non_approved_students
   before_filter :deny_access_for_non_admins,  only: [:new, :edit, :create, :update, :destroy]
 
   def index
@@ -54,4 +55,13 @@ class CoursesController < ApplicationController
     end
     redirect_to courses_path
   end
+  
+  private
+    def deny_access_for_non_approved_students
+      @course = Course.find(params[:id])
+      if !admin? && !current_user.approved_courses.include?(@course)
+        flash[:error] = "You are not an approved, registered student of the course you're trying to view."
+        redirect_to root_path 
+      end
+    end
 end

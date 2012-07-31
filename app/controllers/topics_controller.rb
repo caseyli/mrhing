@@ -1,6 +1,9 @@
 class TopicsController < ApplicationController
   
   before_filter :load_course
+  before_filter :authenticate
+  before_filter :deny_access_for_non_approved_students
+  before_filter :deny_access_for_non_admins, only: [:edit, :destroy, :update]
   
   def index
     @topics = @course.topics

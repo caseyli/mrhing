@@ -18,9 +18,7 @@
 					<%= render 'layouts/side_menu' %>
 				</td>
 				<td>
-					<div class="course-menu">
-						<%= render "courses/menu" %>
-					</div>
+					<%= render "courses/menu" %>
 					<div class="course-body">
 						<% flash.each do |key, value| %>
 							<div class="flash <%= key %>"><%= value %></div>
