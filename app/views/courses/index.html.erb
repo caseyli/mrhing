@@ -1,5 +1,12 @@
 <h1>Listing courses</h1>
 <table class="standard-listing">
+	<tr>
+		<th>Student</th>
+		<th>Course</th>
+		<% if admin? %>
+			<th></th>
+		<% end %>
+	</tr>
 	<%= render @courses %>
 </table>
 <br />

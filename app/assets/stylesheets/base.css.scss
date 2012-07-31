@@ -198,6 +198,11 @@ input, textarea {
 table.standard-listing {
 	border-collapse: collapse;
 	tr {
+		th {
+			background: #333;
+			color:white;
+			padding: 10px 30px 10px 30px;
+		}
 		td {
 			border: 1px solid;
 			border-color: #eee;

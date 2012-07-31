@@ -1,6 +1,7 @@
 <tr>
 	<td><%= user.full_name %></td>
 	<td><%= user.email %></td>
+	<td><%= user.student_number %></td>
 	<td><% if user.is_admin? %>
 		<%= link_to "Take Away Admin", "/users/#{user.id}/take_away_admin" %>
 	<% else %>
