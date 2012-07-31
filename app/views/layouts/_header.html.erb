@@ -17,8 +17,9 @@
 				<li>
 					You are signed in as <%= link_to current_user.full_name, "#" %>
 					<ul>
-						<%= link_to "Edit Password", edit_user_registration_path %>
-						<%= link_to "Profile Image", "http://www.gravatar.com", :target => "_blank" %>
+
+						<%= link_to "Edit Profile", edit_user_registration_path %>
+						<%= link_to "Edit Profile Image", "http://www.gravatar.com", :target => "_blank" %>
 						<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
 					</ul>
 

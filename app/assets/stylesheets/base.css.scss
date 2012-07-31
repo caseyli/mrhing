@@ -93,7 +93,7 @@ h1 {
 	}
 }
 .dropdown-menu li:hover ul{ /* Display the dropdown on hover */
-	left:0; /* Bring back on-screen when needed */
+	left:-5px; /* Bring back on-screen when needed */
 }
 .dropdown-menu li:hover a{ /* These create persistent hover states, meaning the top-most link stays 'hovered' even when your cursor has moved down the list. */
 	background:#fff;
