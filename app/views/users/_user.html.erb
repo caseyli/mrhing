@@ -8,4 +8,7 @@
 		<%= link_to "Make Admin", "/users/#{user.id}/make_admin" %>
 	<% end %>
 	</td>
+	<td>
+		<%= link_to 'delete', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+	</td>
 </tr>
