@@ -31,5 +31,6 @@
 	</ul>
 </div>
 <br />
-
-<%= link_to 'New News post', new_course_news_post_path(@course) %>
+<% if admin? %>
+	<%= link_to 'New News post', new_course_news_post_path(@course) %>
+<% end %>
