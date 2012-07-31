@@ -1,14 +1,28 @@
-<li>
-<%= course.name %>
-<% if current_user.is_registered_for(course) %>
-	registered
-<% else %>
-	<%= link_to 'register', controller: :courses, action: :register_current_user, id: course %>
-<% end %>
+<tr>
+	<td>
+		<%= course.name %>
+	</td>
+	<td>
+		<% if current_user.is_registered_for(course) %>
+			registered
+			
+			<% if current_user.is_approved_for(course) %>
+				and approved
+			<% else %>
+				and awaiting approval
+			<% end %>
+			
+		<% else %>
+			<%= link_to 'register', {controller: :courses, action: :register_current_user, id: course}, class: "button" %>
+		<% end %>
+	</td>
 
-<% if admin? %>
-<%= link_to 'Show', course %>
-<%= link_to 'Edit', edit_course_path(course) %>
-<%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
-</li>
+	<% if admin? %>
+	<td>
+		<%= link_to 'Show', course %>
+		<%= link_to 'Edit', edit_course_path(course) %>
+		<%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %>
+	</td>
+	<% end %>
+
+</tr>

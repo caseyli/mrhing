@@ -1,4 +1,4 @@
-<% unless @course.nil? %>
+<% unless @course.nil? || @course.new_record? %>
 	<div class="course-menu">
 		<span class="course-menu-header">
 			<%= @course.name %> Menu:

@@ -16,3 +16,14 @@
 		&:visited{color:white;}
 	}
 }
+
+table.course-listing {
+	border-collapse: collapse;
+	tr {
+		td {
+			border: 1px solid;
+			border-color: #eee;
+			padding:30px;
+		}
+	}
+}

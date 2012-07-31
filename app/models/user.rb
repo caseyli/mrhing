@@ -38,6 +38,10 @@ class User < ActiveRecord::Base
     self.courses.include?(course)
   end
   
+  def is_approved_for(course)
+    self.approved_courses.include?(course)
+  end
+  
   def approved_courses
     a = self.course_registrations.select{|course_registration| course_registration.approved}
     a.collect{|course_registration| course_registration.course}
