@@ -17,4 +17,11 @@ class CourseRegistrationsController < ApplicationController
 
     redirect_to course_registrations_path
   end
+  
+  def destroy
+    course_registration = CourseRegistration.find(params[:id])
+    course_registration.destroy
+    
+    redirect_to course_registrations_path
+  end
 end
