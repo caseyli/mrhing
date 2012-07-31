@@ -4,8 +4,8 @@ class Course < ActiveRecord::Base
   validates :name,  presence: true,
                     uniqueness: { case_sensitive: false }
                     
-  has_many :course_registrations
+  has_many :course_registrations, dependent: :destroy
   has_many :users, :through => :course_registrations
-  has_many :news_posts
-  has_many :topics
+  has_many :news_posts, dependent: :destroy
+  has_many :topics, dependent: :destroy
 end
