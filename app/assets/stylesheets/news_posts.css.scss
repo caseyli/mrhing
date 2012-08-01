@@ -20,6 +20,7 @@
 	.news-posts {
 		padding-left:0px;
 		list-style:none;
+		font-size: 14px;
 	}
 	
 	.news-post-header {
@@ -28,9 +29,10 @@
 		padding: 10px;
 		border-top-left-radius: 10px;
 		border-top-right-radius: 10px;
+		font-size: 14px;
 		
 		.news-post-header-date {
-			font-size:10px;
+			font-size:12px;
 			font-weight:normal;
 			font-style:italic;
 		}
