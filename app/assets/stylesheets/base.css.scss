@@ -7,7 +7,7 @@ body {
 
 h1 {
 	font-size: 30px;
-	padding-bottom: 20px;
+	padding-bottom: 10px;
 	font-family: 'Oswald';
 	line-height:110%;
 }
@@ -179,6 +179,7 @@ h1 {
 	color:white;
 	border-radius: 5px;
 	text-decoration:none;
+	line-height:3em;
 	&:visited {
 		color:white
 	};
