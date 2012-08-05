@@ -2,7 +2,7 @@ class CoursesController < ApplicationController
   
   before_filter :authenticate
   before_filter :deny_access_for_non_approved_students, except: [:index, :new, :create, :register_current_user]
-  before_filter :deny_access_for_non_admins,  only: [:new, :edit, :create, :update, :destroy]
+  before_filter :deny_access_for_non_admins,  only: [:new, :edit, :create, :update, :destroy, :add_teacher, :remove_teacher]
 
   def index
     @courses = Course.all
@@ -54,6 +54,20 @@ class CoursesController < ApplicationController
       flash[:error] = "There has been an error in registering you for the course."
     end
     redirect_to courses_path
+  end
+  
+  def add_teacher
+    teacher = User.find_by_id(params[:teacher_to_add][:id])
+    course = Course.find(params[:id])
+    course.add_teacher(teacher)
+    redirect_to course
+  end
+  
+  def remove_teacher
+    teacher = User.find_by_id(params[:teacher_to_remove])
+    course = Course.find(params[:id])
+    course.remove_host(teacher)
+    redirect_to course
   end
   
   private

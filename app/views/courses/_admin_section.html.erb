@@ -1,0 +1,30 @@
+<hr>
+<h2>Administration</h2>
+
+<h3>Teachers</h3>
+<!-- Hosts -->
+<% @course.teachers.each do |teacher| %>
+	<%= teacher.full_name %>
+	<% if admin? %>
+		| <%= link_to "remove", :controller => "courses", :action => "remove_teacher", :method => :post, :teacher_to_remove => teacher, :id => @course %>
+	<% end %>
+	<br/>
+<% end %>
+<% if admin? %>
+	<%= form_tag("/courses/add_teacher", :method => "post") do %>
+		<%= label_tag(:teacher_to_add, "Add Teacher:") %>
+		<%= collection_select :teacher_to_add, :id, User.all, :id, :full_name %>
+		<%= hidden_field_tag(:id, @course.id)%>
+		<%= submit_tag("Add", :class => "add-teacher") %>
+	<% end %>
+<% end %>
+
+<h3>Registered Students</h3>
+<ul>
+	<% @course.users.each do |user| %>
+		<li><%=  user.full_name %></li>
+	<% end %>
+</ul>
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>

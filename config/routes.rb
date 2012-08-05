@@ -23,6 +23,9 @@ Mrhing::Application.routes.draw do
     end
   end
   
+  match "courses/add_teacher" => "courses#add_teacher"
+  match "courses/remove_teacher" => "courses#remove_teacher"
+  
   resources :course_registrations do 
     member do
       get :approve
