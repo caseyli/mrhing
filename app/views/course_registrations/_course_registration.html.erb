@@ -1,18 +1,20 @@
-<tr>
-	<td>
-		<%= course_registration.user.full_name %>
-	</td>
-	<td>
-		<%= course_registration.course.name %>
-	</td>
-	<td>
-		<% if course_registration.approved %>
-			Approved
-		<% else %>
-			<%= link_to "approve", {controller: :course_registrations, id: course_registration.id, action: :approve}, class: "button" %>
-		<% end %>
-	</td>
-	<td>
-		<%= link_to 'delete', course_registration, method: :delete, data: { confirm: 'Are you sure?' } %>
-	</td>
-</tr>
+<% if admin? || teacher_of?(course_registration.course)%>
+	<tr>
+		<td>
+			<%= course_registration.user.full_name %>
+		</td>
+		<td>
+			<%= course_registration.course.name %>
+		</td>
+		<td>
+			<% if course_registration.approved %>
+				Approved
+			<% else %>
+				<%= link_to "approve", {controller: :course_registrations, id: course_registration.id, action: :approve}, class: "button approve-registration-button" %>
+			<% end %>
+		</td>
+		<td>
+			<%= link_to 'delete', course_registration, method: :delete, data: { confirm: 'Are you sure?' } %>
+		</td>
+	</tr>
+<% end %>

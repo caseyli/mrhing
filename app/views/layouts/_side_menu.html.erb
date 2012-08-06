@@ -8,4 +8,13 @@
 			<li><%= link_to course.name, course %></li>
 		<% end %>
 	</ul>
+	
+	<% if teacher? %>
+		<h1>Courses You're Teaching</h1>
+		<ul class="registered-courses-menu">
+			<% current_user.taught_courses.each do |course| %>
+				<li><%= link_to course.name, course %></li>
+			<% end %>
+		</ul>
+	<% end %>
 <% end %>

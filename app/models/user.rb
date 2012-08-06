@@ -14,6 +14,16 @@ class User < ActiveRecord::Base
   has_many :course_registrations, dependent: :destroy
   has_many :courses, through: :course_registrations
   
+  has_and_belongs_to_many :taught_courses, 
+                          :class_name => "Course", :join_table => "taught_courses_teachers",
+                          :foreign_key => "teacher_id",
+                          :association_foreign_key => "taught_course_id"
+  
+  def self.teachers
+    teachers = User.all
+    teachers.select { |x| x.is_teacher? }
+  end
+  
   def full_name
     "#{self.first_name} #{self.last_name}"
   end
@@ -24,6 +34,18 @@ class User < ActiveRecord::Base
   
   def make_admin
     add_role("admin") unless is_admin?
+  end
+  
+  def is_teacher?
+    roles?(:teacher)
+  end
+  
+  def is_teacher_of?(course)
+    taught_courses.include?(course)
+  end
+  
+  def make_teacher
+    add_role("teacher") unless is_teacher?
   end
   
   def roles?(role)
