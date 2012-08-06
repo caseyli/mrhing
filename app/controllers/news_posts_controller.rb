@@ -4,7 +4,7 @@ class NewsPostsController < ApplicationController
   before_filter :load_course
   before_filter :authenticate
   before_filter :deny_access_for_non_approved_students
-  before_filter :deny_access_for_non_admins, only: [:new, :edit, :create, :destroy, :update]
+  before_filter :deny_access_for_non_admins_and_non_teachers_of_this_course, only: [:new, :edit, :create, :destroy, :update]
   
   def index
     @news_posts = @course.news_posts

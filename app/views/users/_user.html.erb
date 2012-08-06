@@ -1,4 +1,11 @@
-<tr>
+<% if user.is_admin? %>
+	<tr class='admin-row'>
+<% elsif user.is_teacher? %>
+	<tr class='teacher-row'>
+<% else %>
+	<tr>
+<% end %>
+
 	<td><%= user.full_name %></td>
 	<td><%= user.email %></td>
 	<td><%= user.student_number %></td>
@@ -6,6 +13,12 @@
 		<%= link_to "Take Away Admin", "/users/#{user.id}/take_away_admin" %>
 	<% else %>
 		<%= link_to "Make Admin", "/users/#{user.id}/make_admin" %>
+	<% end %>
+	</td>
+	<td><% if user.is_teacher? %>
+		<%= link_to "Take Away Teacher", "/users/#{user.id}/take_away_teacher" %>
+	<% else %>
+		<%= link_to "Make Teacher", "/users/#{user.id}/make_teacher" %>
 	<% end %>
 	</td>
 	<td>
