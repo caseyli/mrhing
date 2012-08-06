@@ -9,7 +9,7 @@
 		<% if course_registration.approved %>
 			Approved
 		<% else %>
-			<%= link_to "approve", {controller: :course_registrations, id: course_registration.id, action: :approve}, class: "button" %>
+			<%= link_to "approve", {controller: :course_registrations, id: course_registration.id, action: :approve}, class: "button approve-registration-button" %>
 		<% end %>
 	</td>
 	<td>

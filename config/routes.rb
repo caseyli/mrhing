@@ -12,6 +12,9 @@ Mrhing::Application.routes.draw do
   match "/users/:id/make_admin" => "users#make_admin"
   match "/users/:id/take_away_admin" => "users#take_away_admin"
 
+  match "courses/add_teacher" => "courses#add_teacher"
+  match "courses/remove_teacher" => "courses#remove_teacher"
+
   resources :courses do
     resources :news_posts
     resources :topics do
@@ -22,9 +25,6 @@ Mrhing::Application.routes.draw do
       get :register_current_user
     end
   end
-  
-  match "courses/add_teacher" => "courses#add_teacher"
-  match "courses/remove_teacher" => "courses#remove_teacher"
   
   resources :course_registrations do 
     member do
