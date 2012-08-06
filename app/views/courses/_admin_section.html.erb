@@ -13,7 +13,7 @@
 <% if admin? %>
 	<%= form_tag("/courses/add_teacher", :method => "post") do %>
 		<%= label_tag(:teacher_to_add, "Add Teacher:") %>
-		<%= collection_select :teacher_to_add, :id, User.all, :id, :full_name %>
+		<%= collection_select :teacher_to_add, :id, User.teachers, :id, :full_name %>
 		<%= hidden_field_tag(:id, @course.id)%>
 		<%= submit_tag("Add", :class => "add-teacher") %>
 	<% end %>

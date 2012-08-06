@@ -15,7 +15,7 @@ class Course < ActiveRecord::Base
                           :association_foreign_key => "teacher_id"
                           
   def add_teacher(teacher)
-    teachers << teacher
+    teachers << teacher if teacher.is_teacher?
     update
   end
 

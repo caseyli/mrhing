@@ -11,6 +11,8 @@ Mrhing::Application.routes.draw do
   resources :users
   match "/users/:id/make_admin" => "users#make_admin"
   match "/users/:id/take_away_admin" => "users#take_away_admin"
+  match "/users/:id/make_teacher" => "users#make_teacher"
+  match "/users/:id/take_away_teacher" => "users#take_away_teacher"
 
   match "courses/add_teacher" => "courses#add_teacher"
   match "courses/remove_teacher" => "courses#remove_teacher"

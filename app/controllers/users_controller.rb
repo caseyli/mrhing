@@ -6,7 +6,19 @@ class UsersController < ApplicationController
     @users = User.all
   end
   
-  def take_away_admin
+  def take_away_teacher
+    user = User.find(params[:id])
+    if current_user != user
+      user.roles.delete(user.roles.find_by_name(:teacher))
+      flash[:success] = "User Successfully updated!"
+    else
+      flash[:error] = "You can't take away your own Teacher privileges"
+    end
+    
+    redirect_to users_path
+  end
+  
+  def take_away_teacher
     user = User.find(params[:id])
     if current_user != user
       user.roles.delete(user.roles.find_by_name(:admin))
@@ -28,6 +40,13 @@ class UsersController < ApplicationController
   def make_admin
     user = User.find(params[:id])
     user.make_admin
+    flash[:success] = "User Successfully updated!"
+    redirect_to users_path
+  end
+  
+  def make_teacher
+    user = User.find(params[:id])
+    user.make_teacher
     flash[:success] = "User Successfully updated!"
     redirect_to users_path
   end
