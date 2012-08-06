@@ -18,7 +18,7 @@ class NotificationsMailer < ActionMailer::Base
     @user = user
     
     mail(:to => user.email,
-         :subject => "You've registration has been approved!")
+         :subject => "Your registration has been approved!")
     
   end
   
