@@ -10,6 +10,8 @@ gem 'thin'
 
 gem 'devise'
 
+gem 'newrelic_rpm'
+
 gem 'gravatar-ultimate'
 
 # Gems used only for assets and not required
