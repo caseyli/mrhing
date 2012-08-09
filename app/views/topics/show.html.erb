@@ -3,7 +3,7 @@
 	<h1><%= @topic.title %></h1>
 	<%= link_to "New Post", new_course_topic_discussion_post_path(@course, @topic), :class => "button" %>
 	<ul class="discussion-posts">
-		<%= nested_discussion_posts @topic.discussion_posts.unscoped.arrange(:order => :created_at) %>
+		<%= nested_discussion_posts @topic.discussion_posts.arrange(:order => :created_at) %>
 	</ul>
 </div>
 
