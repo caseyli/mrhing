@@ -12,6 +12,8 @@ gem 'devise'
 
 gem 'newrelic_rpm'
 
+gem 'ancestry'
+
 gem 'gravatar-ultimate'
 
 # Gems used only for assets and not required

@@ -1,8 +1,16 @@
-<h1>New Post</h1>
+<% if @discussion_post.parent %>
+	<h1>Replying to: "<%= @discussion_post.parent.body[0..20] %>..."</h1>
+	<div> </div>
+<% else %>
+	<h1>New Post</h1>
+<% end %>
+
 
 <h2>
 Topic: <%= @topic.title %>
 </h2>
+
+
 
 <%= render 'form' %>
 

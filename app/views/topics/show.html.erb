@@ -3,22 +3,7 @@
 	<h1><%= @topic.title %></h1>
 	<%= link_to "New Post", new_course_topic_discussion_post_path(@course, @topic), :class => "button" %>
 	<ul class="discussion-posts">
-		<% @topic.discussion_posts.each do |discussion_post| %>
-			<li>
-				<div class="discussion-post-header">
-					<%= discussion_post.posted_by %> on <%= convert_time_string(discussion_post.updated_at) %>
-					<% if admin? %>
-						| <%= link_to 'delete', [@course, @topic, discussion_post], 
-								:method => :delete, 
-								:confirm => "Are you sure you want to delete the post?", 
-								:title => "Delete Discussion Post?" %>
-					<% end %>
-				</div>
-				<%= discussion_post.body %>
-
-				
-			</li>
-		<% end %>
+		<%= nested_discussion_posts @topic.discussion_posts.unscoped.arrange(:order => :created_at) %>
 	</ul>
 </div>
 

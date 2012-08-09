@@ -24,7 +24,7 @@ class DiscussionPostsController < ApplicationController
   end
 
   def new
-    @discussion_post = @topic.discussion_posts.build
+    @discussion_post = @topic.discussion_posts.build(:parent_id => params[:parent_id])
 
     respond_to do |format|
       format.html # new.html.erb

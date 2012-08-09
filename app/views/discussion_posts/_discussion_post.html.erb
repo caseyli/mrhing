@@ -1,0 +1,14 @@
+
+<li>
+<div class="discussion-post-header">
+					<%= discussion_post.posted_by %> on <%= convert_time_string(discussion_post.updated_at) %>
+					<%= link_to "Reply", new_course_topic_discussion_post_path(@course, @topic, :parent_id => discussion_post) %>
+					<% if admin? %>
+						| <%= link_to 'delete', [@course, @topic, discussion_post], 
+								:method => :delete, 
+								:confirm => "Are you sure you want to delete the post?", 
+								:title => "Delete Discussion Post?" %>
+					<% end %>
+				</div>
+				<%= discussion_post.body %>
+</li>
