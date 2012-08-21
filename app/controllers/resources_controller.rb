@@ -48,7 +48,7 @@ class ResourcesController < ApplicationController
 
     respond_to do |format|
       if @resource.save
-        format.html { redirect_to @resource.course, notice: 'Resource was successfully created.' }
+        format.html { redirect_to course_resources_path(@resource.course), notice: 'Resource was successfully created.' }
         format.json { render json: @resource, status: :created, location: @resource }
       else
         format.html { render action: "new" }
@@ -64,7 +64,7 @@ class ResourcesController < ApplicationController
 
     respond_to do |format|
       if @resource.update_attributes(params[:resource])
-        format.html { redirect_to @resource.course, notice: 'Resource was successfully updated.' }
+        format.html { redirect_to course_resources_path(@resource.course), notice: 'Resource was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -81,7 +81,7 @@ class ResourcesController < ApplicationController
     @resource.destroy
 
     respond_to do |format|
-      format.html { redirect_to @course }
+      format.html { redirect_to course_resources_path(@course) }
       format.json { head :no_content }
     end
   end
