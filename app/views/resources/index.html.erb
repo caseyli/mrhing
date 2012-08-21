@@ -1,0 +1,8 @@
+<h1><%= @course.name %> Resources</h1>
+<% if admin? %>
+	<%= link_to "Add Resource", new_course_resource_path(@course), :class => "button" %>
+<% end %>
+
+<ul>
+	<%= render @resources %>
+</ul>

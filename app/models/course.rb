@@ -8,6 +8,7 @@ class Course < ActiveRecord::Base
   has_many :users, :through => :course_registrations
   has_many :news_posts, dependent: :destroy
   has_many :topics, dependent: :destroy
+  has_many :resources, dependent: :destroy
   
   has_and_belongs_to_many :teachers, :class_name => "User", 
                           :join_table => "taught_courses_teachers",

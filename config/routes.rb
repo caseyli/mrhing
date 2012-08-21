@@ -1,5 +1,17 @@
 Mrhing::Application.routes.draw do
 
+  get "resources/new"
+
+  get "resources/create"
+
+  get "resources/edit"
+
+  get "resources/update"
+
+  get "resources/show"
+
+  get "resources/index"
+
   resources :discussion_posts
 
   devise_for :users
@@ -22,6 +34,8 @@ Mrhing::Application.routes.draw do
     resources :topics do
       resources :discussion_posts
     end
+    
+    resources :resources
     
     member do
       get :register_current_user
