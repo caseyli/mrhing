@@ -1,4 +1,8 @@
 <li>
-	<%= link_to resource.name, resource.file.url %><br>
-	<%= resource.description %>
+	<div class="resource-header"><%= resource.name %></div>
+	<div class="resource-description"><%= resource.description %>
+		<div class="resource-download">
+			<%= link_to "Download", resource.file.url %>
+		</div>
+	</div>
 </li>

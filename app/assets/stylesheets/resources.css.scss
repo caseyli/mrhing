@@ -1,3 +1,35 @@
 // Place all the styles related to the Resources controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.resources {
+	list-style:none;
+	padding-left: 0;
+	
+	width: 50%;
+	
+	li {
+		border-radius: 10px;
+		background: #eee;
+		margin-bottom: 10px;
+
+
+	
+		.resource-header {
+			border-radius: 0 10px 0 0px;
+			font-size: 15px;
+			background:#555;
+			color:white;
+			padding: 5px;
+		}
+		
+		.resource-description {
+			padding: 5px;
+			border: 1px solid;
+			border-color:#555;
+		}
+		
+		.resource-download {
+		}
+	}
+}
