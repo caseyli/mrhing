@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120821155255) do
+ActiveRecord::Schema.define(:version => 20120824223056) do
 
   create_table "course_registrations", :force => true do |t|
     t.boolean  "approved"
@@ -32,10 +32,11 @@ ActiveRecord::Schema.define(:version => 20120821155255) do
   create_table "discussion_posts", :force => true do |t|
     t.string   "posted_by"
     t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.integer  "topic_id"
     t.string   "ancestry"
+    t.string   "posted_by_email"
   end
 
   add_index "discussion_posts", ["ancestry"], :name => "index_discussion_posts_on_ancestry"

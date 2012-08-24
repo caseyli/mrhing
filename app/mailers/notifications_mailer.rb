@@ -22,4 +22,11 @@ class NotificationsMailer < ActionMailer::Base
     
   end
   
+  def response_to_your_post(original_post_user, original_post, response_post)
+    @original_post = original_post
+    @repsonse_post = response_post
+    
+    mail(:to => original_post_user.email, :subject => "Someone has responded to your post.")
+  end
+  
 end

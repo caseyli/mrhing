@@ -1,14 +1,20 @@
 
 <li>
-<div class="discussion-post-header">
-					<%= discussion_post.posted_by %> on <%= convert_time_string(discussion_post.updated_at) %>
-					<%= link_to "Reply", new_course_topic_discussion_post_path(@course, @topic, :parent_id => discussion_post) %>
-					<% if admin? %>
-						| <%= link_to 'delete', [@course, @topic, discussion_post], 
-								:method => :delete, 
-								:confirm => "Are you sure you want to delete the post?", 
-								:title => "Delete Discussion Post?" %>
-					<% end %>
-				</div>
-				<%= discussion_post.body %>
+	<div class="discussion-post-gravatar">
+		<%= image_tag(Gravatar.new(discussion_post.posted_by_email).image_url, :class => "discussion-post-avatar") unless discussion_post.posted_by_email.blank? %>
+	</div>
+	<div class="discussion-post-header">
+		<%= discussion_post.posted_by %> on <%= convert_time_string(discussion_post.updated_at) %>
+		
+		<div class="discussion-post-actions">
+			<%= link_to "reply", new_course_topic_discussion_post_path(@course, @topic, :parent_id => discussion_post), :class => "discussion-post-button" %>
+			<% if admin? %>
+				<%= link_to 'delete', [@course, @topic, discussion_post], 
+						:method => :delete, 
+						:confirm => "Are you sure you want to delete the post?", 
+						:title => "Delete Discussion Post?", :class => "discussion-post-button" %>
+			<% end %>
+		</div>
+	</div>
+	<%= discussion_post.body %>
 </li>

@@ -39,6 +39,7 @@ class DiscussionPostsController < ApplicationController
   def create
     @discussion_post = @topic.discussion_posts.build(params[:discussion_post])
     @discussion_post.posted_by = current_user.full_name
+    @discussion_post.posted_by_email = current_user.email
     respond_to do |format|
       if @discussion_post.save
         
