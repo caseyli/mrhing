@@ -1,5 +1,16 @@
 <li>
-	<div class="resource-header"><%= resource.name %></div>
+	<div class="resource-header">
+		<%= resource.name %>
+		<div class="resource-actions">
+			<% if admin? %>
+				<%= link_to 'delete', [@course, resource], 
+						:method => :delete, 
+						:confirm => "Are you sure you want to delete this resource?", 
+						:title => "Delete Resource?", :class => "resource-action-button" %>
+				<%= link_to 'edit', edit_course_resource_path(@course, resource), :class => "resource-action-button" %>
+			<% end %>
+		</div>
+	</div>
 	<div class="resource-description"><%= resource.description %>
 		<div class="resource-download">
 			<%= link_to "Download", resource.file.url %>
