@@ -13,6 +13,12 @@ class NotificationsMailer < ActionMailer::Base
     
   end
   
+  def confirmation_you_have_registered_for_a_course(user, course)
+    @user = user
+    @course = course
+    mail(:to => user.email, :subject => "Thank you for registering for #{@course.name}")
+  end
+  
   def user_approved_for_course(user, course)
     @course = course
     @user = user

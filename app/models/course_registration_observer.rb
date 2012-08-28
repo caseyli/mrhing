@@ -6,6 +6,7 @@ class CourseRegistrationObserver < ActiveRecord::Observer
     course = Course.find(model.course_id)
     teachers = course.teachers
     NotificationsMailer.user_registered_for_course(user, course, teachers).deliver
+    NotificationsMailer.confirmation_you_have_registered_for_a_course(user, course)
   end
   
   def after_update(model)
