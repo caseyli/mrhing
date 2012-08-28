@@ -1,6 +1,6 @@
 <li>
 	<div class="resource-header">
-		<%= resource.name %>
+		<%= resource.name %> (<%= resource.category %>)
 		<div class="resource-actions">
 			<% if admin? %>
 				<%= link_to 'delete', [@course, resource], 

@@ -9,6 +9,8 @@ class ResourcesController < ApplicationController
   def index
     @resources = @course.resources
 
+    @resources.sort! { |r| r.category }
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @resources }
