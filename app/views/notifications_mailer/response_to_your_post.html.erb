@@ -1,7 +1,10 @@
 <p>
-	<%= @response_post.posted_by %> has responded to your discussion post.
+	<b><%= @response_post.posted_by %></b> has responded to your discussion post.
 </p>
-
+<p>
+	Course: <b><%= @response_post.topic.course.name %></b><br>
+	Topic: <b><%= @response_post.topic.title %></b>
+</p>
 <p>
 	Your original posting:<br>
 	<%= @original_post.body %>
