@@ -25,6 +25,7 @@ class TopicsController < ApplicationController
 
   def new
     @topic = @course.topics.build
+    @topic.discussion_posts.build
     
     respond_to do |format|
       format.html # new.html.erb
