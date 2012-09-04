@@ -9,7 +9,7 @@ class ResourcesController < ApplicationController
   def index
     @resources = @course.resources
 
-    @resources.sort! { |r| r.category }
+    @resources.sort_by! { |r| r.category }
 
     respond_to do |format|
       format.html # index.html.erb
