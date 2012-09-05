@@ -17,10 +17,12 @@
   </div>
 
   <%= f.fields_for :discussion_posts do |builder| %>
-  <div id="name">
+  <div class="field">
   	<%= builder.label :body, "Message" %><br>
 	<%= builder.text_area :body %>
   </div>
+	<%= builder.hidden_field :posted_by, :value => current_user.full_name %>
+	<%= builder.hidden_field :posted_by_email, :value => current_user.email %>
   <% end %>
 
   <div class="actions">
